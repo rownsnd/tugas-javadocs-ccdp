@@ -16,7 +16,7 @@ public class Main {
 
         // Menetapkan data karyawan
         karyawan.setNama("Muhamad Haerul Anwar");
-        karyawan.setGajiKotor(0);
+        karyawan.setGajiKotor(10000000);
 
         // Menghitung gaji bersih
         karyawan.hitungPajak();

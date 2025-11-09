@@ -12,28 +12,30 @@
  * </ul>
  * </p>
  * 
- * <p>Program ini juga dilengkapi dengan mekanisme penanganan kesalahan (try-catch)
- * untuk menghindari error akibat data null atau operasi perhitungan yang tidak valid.</p>
+ * <p>
+ * Program ini juga dilengkapi dengan mekanisme penanganan kesalahan (try-catch)
+ * untuk menghindari error akibat data null atau operasi perhitungan yang tidak valid.
+ * </p>
  * 
- * @author 
- * @version 1.2
+ * @author Muhamad Haerul Anwar
+ * @version 1.0
  */
 public class Karyawan extends InterfaceKaryawan {
 
     /** Nama karyawan */
-    public String nama;
+    private String nama;
 
     /** Gaji sebelum dipotong pajak */
-    public Integer gajiKotor;
+    private Integer gajiKotor;
 
     /** Gaji setelah dipotong pajak */
-    public Integer gajiBersih;
+    private Integer gajiBersih;
 
     /** Persentase pajak (dalam %) */
-    public Integer pajak = 5;
+    private Integer pajak = 5;
 
     /** Tunjangan transportasi tetap */
-    public Integer tunjanganTransportasi = 250000;
+    private Integer tunjanganTransportasi = 250000;
     
     /**
      * Mengembalikan nama karyawan.
@@ -95,6 +97,7 @@ public class Karyawan extends InterfaceKaryawan {
      * Menghitung gaji bersih setelah dikurangi pajak.
      * 
      * @return gaji bersih
+     * @throws NullPointerException jika gajiKotor atau pajak belum diisi
      */
     @Override
     public Integer hitungPajak() {

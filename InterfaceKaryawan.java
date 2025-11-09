@@ -2,7 +2,7 @@
  * Kelas induk InterfaceKaryawan yang berisi struktur dasar perhitungan gaji karyawan.
  * Kelas ini dapat diturunkan oleh kelas lain untuk mengimplementasikan logika perhitungan gaji.
  * 
- * @author 
+ * @author Muhamad Haerul Anwar 
  * @version 1.0
  */
 public class InterfaceKaryawan {
