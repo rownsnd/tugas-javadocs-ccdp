@@ -93,24 +93,25 @@ public class Karyawan extends InterfaceKaryawan {
 
     // ===== Implementasi Metode dari InterfaceKaryawan =====
 
-    /**
-     * Menghitung gaji bersih setelah dikurangi pajak.
-     * 
-     * @return gaji bersih
-     * @throws NullPointerException jika gajiKotor atau pajak belum diisi
+        /**
+     * Menampilkan seluruh data karyawan termasuk gaji kotor, pajak, dan total gaji.
      */
     @Override
-    public Integer hitungPajak() {
+    public void tampilGajiKaryawan() {
         try {
-            if (gajiKotor == null || pajak == null) {
-                throw new NullPointerException("Data gaji atau pajak belum diisi!");
-            }
-            this.gajiBersih = this.gajiKotor - (this.gajiKotor * this.pajak / 100);
+            System.out.println("=====================================");
+            System.out.println("Data Karyawan");
+            System.out.println("Nama                            : " + this.nama);
+            System.out.println("Gaji Kotor                      : Rp" + this.gajiKotor);
+            System.out.println("Pajak                           : " + this.pajak + "%");
+            System.out.println("Tunjangan Transportasi          : Rp" + this.tunjanganTransportasi);
+            System.out.println("-------------------------------------");
+            System.out.println("Gaji Bersih                     : Rp" + this.hitungPajak());
+            System.out.println("Total Gaji (Bersih + Tunjangan) : Rp" + this.totalGajiKaryawan());
+            System.out.println("=====================================");
         } catch (Exception e) {
-            System.out.println("Terjadi kesalahan saat menghitung pajak: " + e.getMessage());
-            this.gajiBersih = 0;
+            System.out.println("Terjadi kesalahan saat menampilkan data karyawan: " + e.getMessage());
         }
-        return this.gajiBersih;
     }
 
     /**
@@ -133,23 +134,24 @@ public class Karyawan extends InterfaceKaryawan {
     }
 
     /**
-     * Menampilkan seluruh data karyawan termasuk gaji kotor, pajak, dan total gaji.
+     * Menghitung gaji bersih setelah dikurangi pajak.
+     * 
+     * @return gaji bersih
+     * @throws NullPointerException jika gajiKotor atau pajak belum diisi
      */
     @Override
-    public void tampilGajiKaryawan() {
+    public Integer hitungPajak() {
         try {
-            System.out.println("=====================================");
-            System.out.println("Data Karyawan");
-            System.out.println("Nama                            : " + this.nama);
-            System.out.println("Gaji Kotor                      : Rp" + this.gajiKotor);
-            System.out.println("Pajak                           : " + this.pajak + "%");
-            System.out.println("Tunjangan Transportasi          : Rp" + this.tunjanganTransportasi);
-            System.out.println("-------------------------------------");
-            System.out.println("Gaji Bersih                     : Rp" + this.hitungPajak());
-            System.out.println("Total Gaji (Bersih + Tunjangan) : Rp" + this.totalGajiKaryawan());
-            System.out.println("=====================================");
+            if (gajiKotor == 0 || pajak == 0) {
+                throw new NullPointerException("Data gaji atau pajak tidak boleh 0!");
+            }
+            this.gajiBersih = this.gajiKotor - (this.gajiKotor * this.pajak / 100);
         } catch (Exception e) {
-            System.out.println("Terjadi kesalahan saat menampilkan data karyawan: " + e.getMessage());
+            System.out.println("Terjadi kesalahan saat menghitung pajak: " + e.getMessage());
+            this.gajiBersih = 0;
         }
+        return this.gajiBersih;
     }
+
+
 }
